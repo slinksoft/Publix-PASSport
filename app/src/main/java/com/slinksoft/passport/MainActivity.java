@@ -112,10 +112,22 @@ public class MainActivity extends AppCompatActivity {
         note.setTitle("NOTE");
         note.setMessage("The \"PASSport\" app is intended to be used by Publix associates/employees only! This app " +
                 "allows you to access Oasis and other PASSport services, such as \"Pay Statements\", \"Associate Benefits\"" +
-                " and more, just as you would when you access PASSport on a computer or your mobile Internet Browser.");
+                " and more, just as you would when you access PASSport on a computer or your mobile Internet Browser.\n\n" +
+                "To check on the latest updates of this app, visit the PASSport Github releases page by tapping the button below.\n\n" +
+                "Version: " + version);
         note.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+        note.setButton(AlertDialog.BUTTON_POSITIVE, "Visit PASSport Github Releases",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        // navigates user to my portfolio upon click of the button
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://realslinksoft.wixsite.com/slink-soft-portfolio"));
+                        startActivity(browserIntent);
                         dialogInterface.dismiss();
                     }
                 });
