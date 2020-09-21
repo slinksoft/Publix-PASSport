@@ -31,17 +31,23 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // file path object to check if file exists and open it; contains saved login info
+
         final File accPath = new File(getFilesDir() + "/PASSport/" + File.separator + "info.ss");
         this.setTitle("Publix PASSport - By Slink Soft");
+
+        // set version info
         v = 1;
         rev = 0;
         version = v + "." + rev;
-        browser = findViewById(R.id.browserWV);
+
+        browser = findViewById(R.id.browserWV); // get UI WebView reference and store it into instance WebView object
+
+        // set WebViewClient to perform action to the UI WebView reference when a page finishes loading
         browser.setWebViewClient(new WebViewClient()
         {
             public void onPageFinished(WebView view, String url) {
-                System.out.println("Done Loading");
-
+                // if info.ss containing login info doesn't exist and initialcheck is false, display first usage message
                 if (!accPath.exists() && !initialcheck)
                 {
                     initialcheck = true;
@@ -60,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
                     note.show();
                 }
+                // if file exists but info has yet to be autofilled, read login info from info.ss and fill in to respective fields on the WebView
                 else if (!autofilled)
                 {
                     try
@@ -78,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // necessary settings for the WebView in order for the PASSport web service to work
         browser.getSettings().setJavaScriptEnabled(true);
         browser.getSettings().setDomStorageEnabled(true);
         browser.getSettings().setLoadWithOverviewMode(true);
@@ -86,12 +94,13 @@ public class MainActivity extends AppCompatActivity {
         browser.getSettings().setDisplayZoomControls(false);
         browser.getSettings().setSupportZoom(true);
         browser.getSettings().setDefaultTextEncodingName("utf-8");
-        browser.loadUrl("https://www.publix.org/");
+        browser.loadUrl("https://www.publix.org/"); // navigate to passPort
 
     }
 
     public void options(View v)
     {
+        // Start new OptionsActivity reference and open it, allowing the user to set their credentials for autofill
         Intent options = new Intent(MainActivity.this, OptionsActivity.class);
         startActivity(options);
     }

@@ -27,10 +27,13 @@ public class OptionsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options);
+        // file path object to check if file exists and open it; contains saved login info
         accPath = new File(getFilesDir() + "/PASSport/" + File.separator + "info.ss");
 
+        // get UI references and store them into instance objects respectively
         uid = findViewById(R.id.idInput);
         password = findViewById(R.id.passwordInput);
+        // if file doesn't exist, display message
         if (!accPath.exists())
         {
             AlertDialog note = new AlertDialog.Builder(OptionsActivity.this).create();
@@ -49,6 +52,7 @@ public class OptionsActivity extends AppCompatActivity {
 
             note.show();
         }
+        // if file does exist, read saved login info and fill them into the text fields onto the UI
         else
         {
             try
@@ -65,10 +69,12 @@ public class OptionsActivity extends AppCompatActivity {
         }
     }
 
+    // restart app when Back button is pressed
     public void backToMain (View v) {
         restartAppMain();
     }
 
+    // close and restart app
     private void restartAppMain()
     {
         finish();
@@ -79,6 +85,7 @@ public class OptionsActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    // restart app when system back button is pressed
     @Override
     public void onBackPressed() {
         restartAppMain();
@@ -86,6 +93,7 @@ public class OptionsActivity extends AppCompatActivity {
 
     public void saveCredentials (View v) throws IOException
     {
+        // if any text fields blank, display error message
         if (uid.getText().equals("") || password.getText().equals(""))
         {
             AlertDialog error = new AlertDialog.Builder(OptionsActivity.this).create();
@@ -103,14 +111,16 @@ public class OptionsActivity extends AppCompatActivity {
         else
         {
             File path = new File(getFilesDir() + "/PASSport");
+            // if file and directory do not exist, credit directory based on above local variable and file from accPath instance variable
             if (!accPath.exists()) {
                 path.mkdirs();
                 accPath.createNewFile();
             }
+            // create new print writer object, open info.ss then write credentials to file
             PrintWriter write = new PrintWriter(new FileOutputStream(accPath, false));
             write.println(uid.getText());
             write.print(password.getText());
-            write.close();
+            write.close(); // close printwriter instance to provent any future IO exceptions
             Toast.makeText(getApplicationContext(), "Successfully Saved Info!", Toast.LENGTH_SHORT).show();
         }
     }
