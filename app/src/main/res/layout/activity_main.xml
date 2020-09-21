@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <WebView
+        android:id="@+id/browserWV"
+        android:layout_width="366dp"
+        android:layout_height="546dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/creditsButton"
+        android:layout_width="69dp"
+        android:layout_height="41dp"
+        android:onClick="onCredits"
+        android:text="Credits"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.985"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/browserWV"
+        app:layout_constraintVertical_bias="0.272" />
+
+    <Button
+        android:id="@+id/Options"
+        android:layout_width="66dp"
+        android:layout_height="41dp"
+        android:onClick="options"
+        android:text="Options"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.727"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/browserWV"
+        app:layout_constraintVertical_bias="0.25" />
+
+    <Button
+        android:id="@+id/backB"
+        android:layout_width="49dp"
+        android:layout_height="41dp"
+        android:onClick="backBrowser"
+        android:text="@string/backB"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.019"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/browserWV"
+        app:layout_constraintVertical_bias="0.25" />
+
+    <Button
+        android:id="@+id/screenshot"
+        android:layout_width="87dp"
+        android:layout_height="41dp"
+        android:onClick="takeScreenshot"
+        android:text="Screenshot"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/browserWV"
+        app:layout_constraintVertical_bias="0.25" />
+
+    <Button
+        android:id="@+id/ForwardB"
+        android:layout_width="49dp"
+        android:layout_height="41dp"
+        android:onClick="forwardBrowser"
+        android:text="@string/ForwardB"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/browserWV"
+        app:layout_constraintVertical_bias="0.25" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

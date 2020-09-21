@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PASSport</string>
+    <string name="userid"><u>User ID</u></string>
+    <string name="passdisplay"><u>Password</u></string>
+    <string name="backB">&lt;--</string>
+    <string name="ForwardB">--&gt;</string>
+    <string name="saveInfo">Double check your credentials are correct to avoid any login errors!
+    Make sure you tap &quot;Save&quot; to properly save your updated credentials!</string>
+</resources>
