@@ -115,34 +115,6 @@ public class MainActivity extends AppCompatActivity {
         browser.goForward();
     }
 
-    public void note(View v)
-    {
-        AlertDialog note = new AlertDialog.Builder(MainActivity.this).create();
-        note.setTitle("NOTE");
-        note.setMessage("The \"PASSport\" app is intended to be used by Publix associates/employees only! This app " +
-                "allows you to access Oasis and other PASSport services, such as \"Pay Statements\", \"Associate Benefits\"" +
-                " and more, just as you would when you access PASSport on a computer or your mobile Internet Browser.\n\n" +
-                "To check on the latest updates of this app, visit the PASSport Github releases page by tapping the button below.\n\n" +
-                "Version: " + version);
-        note.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                });
-        note.setButton(AlertDialog.BUTTON_POSITIVE, "Visit PASSport Github Releases",
-                new DialogInterface.OnClickListener() {
-
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        // navigates user to my portfolio upon click of the button
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://realslinksoft.wixsite.com/slink-soft-portfolio"));
-                        startActivity(browserIntent);
-                        dialogInterface.dismiss();
-                    }
-                });
-        note.show();
-    }
-
     public void takeScreenshot(View v) {
         Date now = new Date(); // create date object for screenshot file name usage
         android.text.format.DateFormat.format("yyyy-MM-dd_hh:mm:ss", now); // get current date and time
@@ -171,12 +143,11 @@ public class MainActivity extends AppCompatActivity {
     {
         AlertDialog credits = new AlertDialog.Builder(MainActivity.this).create();
         credits.setTitle("Credits");
-        credits.setMessage("PASSport App - Version: " + version + "\n\nDeveloped By: Slink (Dan)\nVisit:\nhttps://realslinksoft.wixsite.com/slink-soft-portfolio" +
-                "\nand\nhttp://www.YouTube.Com/ReTrOSlink\n\nNOTE: This app is " +
+        credits.setMessage("PASSport App - Version: " + version + "\n\nDeveloped By: Slink (Dan)\n\nNOTE: This app is " +
                 "not affiliated with Publix Super Markets Inc.! This app is written " +
                 "by a college student with intent of practicing, utilizing, and growing his current skills " +
                 "to become a prospective software developer at Publix's Information Systems department in Lakeland.\n\n" +
-                "Thank you for using this app!\n\n- Slink");
+                "Thank you for using this app!\n\n- Slink\n\nTo check on the latest updates of this app, visit the PASSport Github releases page by tapping the button below.");
         credits.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                 new DialogInterface.OnClickListener() {
 
@@ -190,6 +161,16 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         // navigates user to my portfolio upon click of the button
                         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://realslinksoft.wixsite.com/slink-soft-portfolio"));
+                        startActivity(browserIntent);
+                        dialogInterface.dismiss();
+                    }
+                });
+        credits.setButton(AlertDialog.BUTTON_NEGATIVE, "Visit PASSport Github Releases",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        // navigates user to my portfolio upon click of the button
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/slinksoft/Publix-PASSport/releases"));
                         startActivity(browserIntent);
                         dialogInterface.dismiss();
                     }
