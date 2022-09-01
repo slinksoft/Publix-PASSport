@@ -1,9 +1,9 @@
 # Publix-PASSport
-An Android application that allows Publix associates to utilize PASSport services directly through an app; makes logging in faster and more efficient. This app is written in Java using Android Studio, and also utilizes XML layouts and Javascript calls.
 
-This app's source is based off my Publix ACO app.
+<font><b>NOTICE: This project and application is no longer supported and/or functional due to the recent 2FA changes made on Publix's infrastructure. This project also only served the purprose as a showcase during my professional interviews at Publix I/S ; so it is no longer needed. Please feel free to glance through the code. The screenshots of the app have also been removed.
+  
+  All release versions have been deleted.</b></font>
+  
+~~An Android application that allows Publix associates to utilize PASSport services directly through an app; makes logging in faster and more efficient. This app is written in Java using Android Studio, and also utilizes XML layouts and Javascript calls.~~
 
-
-<p align=center>
-<img src=https://raw.githubusercontent.com/slinksoft/Publix-PASSport/master/1.jpg width=400 height=800> <img src=https://raw.githubusercontent.com/slinksoft/Publix-PASSport/master/2.jpg width=400 height=800><br><img src=https://raw.githubusercontent.com/slinksoft/Publix-PASSport/master/3.jpg width=400 height=800> <img src=https://raw.githubusercontent.com/slinksoft/Publix-PASSport/master/4.jpg width=400 height=800>
-  </p>
+~~This app's source is based off my Publix ACO app.~~
